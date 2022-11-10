@@ -18,13 +18,10 @@ authRoutes(app);
 settingRoutes(app);
 
 mongoose
-  .connect(
-    "mongodb+srv://enigma:hello21@cluster0.0am9wtj.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to Database");
   })
